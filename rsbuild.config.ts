@@ -13,6 +13,7 @@ export default defineConfig({
       {
         tag: 'html',
         attrs: {
+          // 给html添加lang=zh-CN属性
           lang: 'zh-CN',
         },
       },
@@ -20,16 +21,20 @@ export default defineConfig({
   },
   source: {
     entry: {
+      // 指定入口文件
       index: './src/ui/index.tsx',
     },
   },
   output: {
     distPath: {
+      // 指定输出目录
       root: 'dist/web',
     },
+    // 指定资源路径前缀
     assetPrefix: './',
   },
   resolve: {
+    // 配置别名
     alias: {
       '@': path.resolve(__dirname, './src'),
     },

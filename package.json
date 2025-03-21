@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "main": "src/app/main.js",
+  "main": "dist/app/main.js",
   "scripts": {
     "build:web": "rsbuild build",
     "dev:web": "rsbuild dev --open",
     "dev:electron": "electron .",
     "format": "prettier --write .",
-    "preview:web": "rsbuild preview"
+    "preview:web": "rsbuild preview",
+    "translate:electron":"tsc --project src/app/tsconfig.json"
   },
   "dependencies": {
     "react": "^19.0.0",
