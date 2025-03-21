@@ -3,11 +3,13 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "main": "src/app/main.js",
   "scripts": {
-    "build": "rsbuild build",
-    "dev": "rsbuild dev --open",
+    "build:web": "rsbuild build",
+    "dev:web": "rsbuild dev --open",
+    "dev:electron": "electron .",
     "format": "prettier --write .",
-    "preview": "rsbuild preview"
+    "preview:web": "rsbuild preview"
   },
   "dependencies": {
     "react": "^19.0.0",
@@ -19,7 +21,14 @@
     "@types/node": "^22.13.11",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
+    "electron": "^35.0.3",
     "prettier": "^3.5.2",
     "typescript": "^5.8.2"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "core-js",
+      "electron"
+    ]
   }
 }

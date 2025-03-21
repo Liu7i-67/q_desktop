@@ -7,7 +7,6 @@ export default defineConfig({
   server: {
     port: 5677,
   },
-
   html: {
     title: '奇怪的面板',
     tags: [
@@ -21,8 +20,14 @@ export default defineConfig({
   },
   source: {
     entry: {
-      main: './src/ui/index.tsx',
+      index: './src/ui/index.tsx',
     },
+  },
+  output: {
+    distPath: {
+      root: 'dist/web',
+    },
+    assetPrefix: './',
   },
   resolve: {
     alias: {
