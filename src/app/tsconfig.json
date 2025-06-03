@@ -1,9 +1,11 @@
 {
-    "compilerOptions": {
-        "strict": true,
-        "target": "ESNext",
-        "module": "NodeNext",
-        "outDir": "../../dist/app",
-        "skipLibCheck": true
-    }
+  "compilerOptions": {
+    "strict": true,
+    "target": "ESNext",
+    "module": "NodeNext",
+    "outDir": "../../dist/app",
+    "skipLibCheck": true,
+    "moduleResolution": "NodeNext"
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"]
 }
