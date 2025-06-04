@@ -14,3 +14,4 @@ dist/
 
 
 !.demo.env.local
+out/

@@ -39,7 +39,7 @@ export default defineConfig({
       root: 'dist/web',
     },
     // 指定资源路径前缀
-    // assetPrefix: './',
+    assetPrefix: './',
   },
   resolve: {
     // 配置别名
