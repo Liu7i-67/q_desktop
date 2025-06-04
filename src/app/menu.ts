@@ -20,6 +20,18 @@ export const updateMenu = (store: IGloablStore) => {
         );
       },
     },
+    {
+      label: '主播管理',
+      click: () => {
+        addTab(
+          {
+            title: '主播管理' + Date.now(),
+            url: '#/mainData/anchorManage',
+          },
+          store,
+        );
+      },
+    },
   ];
   if (activeWindow) {
     for (let v of activeWindow.viewList) {

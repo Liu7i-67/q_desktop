@@ -1,0 +1,14 @@
+.tx-customer-drawer .ant-drawer-close {
+  position: absolute;
+  left: -24px;
+  top: 0;
+  background-color: #fff;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border-top-left-radius: 0;
+}
+
+.tx-customer-drawer .ant-drawer-close:hover {
+  background-color: #fff;
+  color: lightgray;
+}

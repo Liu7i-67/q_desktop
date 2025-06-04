@@ -17,6 +17,14 @@ export default defineConfig({
           lang: 'zh-CN',
         },
       },
+      {
+        tag: 'link',
+        attrs: { href: '/font/iconfont.css', rel: 'stylesheet' },
+        head: true,
+        append: true,
+        publicPath: true,
+        hash: true,
+      },
     ],
   },
   source: {
@@ -31,12 +39,12 @@ export default defineConfig({
       root: 'dist/web',
     },
     // 指定资源路径前缀
-    assetPrefix: './',
+    // assetPrefix: './',
   },
   resolve: {
     // 配置别名
     alias: {
-      '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './src/ui'),
     },
   },
 });

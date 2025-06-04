@@ -1,0 +1,106 @@
+.task-calendar {
+  border: 1px solid #f1f1f1;
+  border-radius: 8px;
+  margin-top: 12px;
+  overflow: hidden;
+}
+
+.task-calendar thead tr {
+  background-color: #fafafa;
+  height: 56px;
+}
+
+.task-calendar thead tr th {
+  color: #373737;
+  font-size: 18px;
+}
+
+.task-calendar .task-calendar-cell {
+  --bg: transparent;
+  --ratio-bg: transparent;
+  --ratio-color: #000;
+  --date-color: #999999;
+
+  height: 94px;
+  border-radius: 6px;
+  position: relative;
+  border-top: 2px solid #f0f0f0;
+  padding: 4px 6px;
+  margin: 2px 4px;
+  background-color: var(--bg);
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.task-calendar .ant-picker-cell-in-view .task-calendar-cell {
+  --date-color: #333333;
+}
+
+.task-calendar .task-calendar-cell-bg {
+  position: absolute;
+  width: 0%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  background-color: orangered;
+  z-index: 0;
+  background-color: var(--ratio-bg);
+}
+
+.task-calendar .task-calendar-cell-ratio {
+  color: var(--ratio-color);
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.task-calendar .cell-icon {
+  display: none;
+}
+
+.task-calendar-cell.success-cell {
+  --ratio-bg: #d3f8e6;
+  --date-color: #00a73f;
+  --ratio-color: #00a73f;
+}
+
+.task-calendar-cell.success-cell .success,
+.task-calendar-cell.success-cell .smail {
+  display: initial;
+}
+
+.task-calendar-cell.warning-cell {
+  --bg: #ffcec0;
+  --date-color: #8b5300;
+  --ratio-bg: #fbb4a0;
+}
+
+.task-calendar-cell.warning-cell .warrning {
+  display: initial;
+}
+
+.task-calendar-cell.danger-cell {
+  --bg: #ffc0c0;
+  --date-color: #a70003;
+  border-left: 2px solid #f15b28;
+}
+
+.task-calendar-cell.danger-cell .danger {
+  display: initial;
+}
+
+.task-calendar .task-calendar-date {
+  color: var(--date-color);
+}
+
+.task-calendar .ant-picker-cell-today .task-calendar-date {
+  background-color: #0867e9;
+  color: #fff !important;
+  display: inline-flex;
+  width: 34px;
+  height: 24px;
+  border-radius: 4px;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}

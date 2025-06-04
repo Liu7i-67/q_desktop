@@ -28,7 +28,7 @@ export const windowResize = (
     x: 0,
     y: 0,
     width,
-    height,
+    height: height - 50,
   });
 };
 
@@ -81,18 +81,21 @@ export const addTab = (
 
   windowRecord.window.contentView.addChildView(view);
   if (isDev()) {
-    view.webContents.loadURL('http://127.0.0.1:5677');
+    view.webContents.loadURL(`http://127.0.0.1:5677/${info.url}`);
   } else {
-    view.webContents.loadFile(
-      path.join(app.getAppPath() + '/dist/web/index.html'),
-    );
+    let url = '/dist/web/index.html';
+    if (info.url) {
+      url = `/dist/web/${info.url}`;
+    }
+
+    view.webContents.loadFile(path.join(app.getAppPath() + url));
   }
 
   view.setBounds({
     x: 0,
     y: 0,
     width: windowRecord.width,
-    height: windowRecord.height,
+    height: windowRecord.height - 50,
   });
   const oldView = windowRecord.viewList.find(
     (item) => item.id === windowRecord.activeView,

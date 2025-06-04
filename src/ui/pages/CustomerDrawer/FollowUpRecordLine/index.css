@@ -1,0 +1,11 @@
+.follow-up-record-line .ant-timeline-item-pending {
+  padding: 0;
+}
+
+.follow-up-record-line .ant-timeline-item-content {
+  margin-left: 48px;
+}
+
+.follow-up-record-line .ant-timeline-item-tail {
+  border-style: dashed !important;
+}

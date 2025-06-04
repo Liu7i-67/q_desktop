@@ -1,0 +1,59 @@
+.tx-search-form {
+  padding-bottom: 16px;
+}
+
+.tx-search-form-body {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  height: 32px;
+  overflow: hidden;
+  min-width: 100%;
+  gap: 16px;
+}
+
+.tx-search-form-body.expand {
+  overflow: initial;
+}
+
+.tx-search-form .expand-btn {
+  padding: 0;
+}
+
+.tx-search-form-content-wrapper {
+  flex: 1;
+  height: 32px;
+  /* overflow: hidden; */
+}
+
+.tx-search-form-content {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  top: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  z-index: 21;
+  background-color: #fff;
+  padding: 0 16px 16px;
+}
+
+.tx-search-form-bar {
+  gap: 16px;
+  box-sizing: border-box;
+  position: relative;
+  z-index: 21;
+}
+
+.tx-search-form .ant-form-item {
+  margin-bottom: 0;
+}
+
+.tx-search-form .ant-tree-select {
+  width: 240px;
+}
+
+.tx-search-form .ant-select {
+  width: 240px;
+}

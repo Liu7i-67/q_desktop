@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 77.41 78.79">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #e72e7e;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 25px;
+      }
+    </style>
+  </defs>
+  <g id="_红色线条" data-name="红色线条">
+    <path id="_红色线条-2" data-name="红色线条" class="cls-1" d="M16.16,66.29S-7.37-17.76,64.91,24.27"/>
+  </g>
+</svg>

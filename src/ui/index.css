@@ -1,0 +1,100 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+::-webkit-scrollbar,
+.ant-table-tbody-virtual-scrollbar {
+  width: 8px; /* 纵向滚动条*/
+  height: 8px; /* 横向滚动条 */
+  background-color: transparent;
+}
+
+/*定义滚动条轨道 内阴影*/
+/*::-webkit-scrollbar-track {*/
+/*    box-shadow: inset 0 0 6px rgba(249, 250, 251, 0.1);*/
+/*    background-color: #ccc;*/
+/*}*/
+
+/*定义滑块 内阴影*/
+::-webkit-scrollbar-thumb,
+.ant-table-tbody-virtual-scrollbar-thumb {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0) !important;
+  background-color: rgba(0, 0, 0, 0.2) !important;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-thumb:hover,
+.ant-table-tbody-virtual-scrollbar-thumb:hover {
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
+
+.ant-menu-inline-collapsed .ant-menu-submenu .ant-menu-submenu-title,
+.ant-menu-inline-collapsed .ant-menu-submenu-popup .ant-menu-item {
+  padding-inline: 0 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  height: 40px !important;
+}
+
+.antd-select-only-disabled-text > .ant-select-item-option-content {
+  color: rgba(0, 0, 0, 0.25) !important;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-180%);
+  }
+}
+/* 省略 */
+.wes,
+.wes-1 {
+  /* 多出部分用省略号表示 , 用于一行 */
+  overflow: hidden;
+  word-wrap: normal;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.wes-2 {
+  /* 适用于webkit内核和移动端 */
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.wes-3 {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  word-break: break-all;
+}
+
+.no-before::before {
+  display: none;
+}
+
+.ant-badge.ant-badge-status .ant-badge-status-dot {
+  width: 10px !important;
+  height: 10px !important;
+}

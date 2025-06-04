@@ -1,0 +1,113 @@
+@keyframes leftCharacterAnimation {
+  0% {
+    width: 60%;
+    height: 60%;
+    transform: translate(0, 0) rotate(0deg);
+  }
+  5% {
+    width: 60%;
+    height: 60%;
+    transform: translate(-8px, 0) rotate(15deg);
+  }
+  10% {
+    width: 60%;
+    height: 60%;
+    transform: translate(8px, -6px) rotate(15deg);
+  }
+  15% {
+    width: 60%;
+    height: 60%;
+    transform: translate(0px, -2px) rotate(15deg);
+  }
+  20% {
+    width: 60%;
+    height: 60%;
+    transform: translate(4px, -8px) rotate(15deg);
+  }
+  25% {
+    width: 60%;
+    height: 60%;
+    transform: translate(8px, -2px) rotate(15deg);
+  }
+  30% {
+    width: 60%;
+    height: 60%;
+    transform: translate(-8px, -4px) rotate(15deg);
+  }
+  35% {
+    width: 60%;
+    height: 60%;
+    transform: translate(0px, -8px) rotate(15deg);
+  }
+  40% {
+    width: 60%;
+    height: 60%;
+    transform: translate(4px, -10px) rotate(15deg);
+  }
+  45% {
+    width: 60%;
+    height: 60%;
+    transform: translate(8px, -4px) rotate(15deg);
+  }
+  50% {
+    width: 60%;
+    height: 60%;
+    transform: translate(4px, -2px) rotate(15deg);
+  }
+  55% {
+    width: 60%;
+    height: 60%;
+    transform: translate(0, -5px) rotate(15deg);
+  }
+  60% {
+    width: 60%;
+    height: 60%;
+    transform: translate(-8px, -4px) rotate(15deg);
+  }
+  65% {
+    width: 60%;
+    height: 60%;
+    transform: translate(8px, -2px) rotate(15deg);
+  }
+  70% {
+    width: 60%;
+    height: 60%;
+    transform: translate(0px, 0) rotate(15deg);
+  }
+  75% {
+    width: 60%;
+    height: 60%;
+    transform: translate(4px, -4px) rotate(15deg);
+  }
+  80% {
+    width: 60%;
+    height: 60%;
+    transform: translate(8px, -8px) rotate(15deg);
+  }
+  85% {
+    width: 60%;
+    height: 60%;
+    transform: translate(-8px, -4px) rotate(15deg);
+  }
+  90% {
+    width: 60%;
+    height: 60%;
+    transform: translate(0px, -2px) rotate(15deg);
+  }
+  95% {
+    width: 60%;
+    height: 60%;
+    transform: translate(4px, -6px) rotate(15deg);
+  }
+  100% {
+    width: 60%;
+    height: 60%;
+    transform: translate(8px, -2px) rotate(15deg);
+  }
+}
+
+.left-character-animation {
+  animation: leftCharacterAnimation 2s;
+  animation-delay: 1s;
+  position: relative;
+}

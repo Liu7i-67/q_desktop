@@ -1,0 +1,21 @@
+.tx-employee-modal-picker.ant-tree.ant-tree-directory
+  .ant-tree-treenode-selected
+  .ant-tree-node-content-wrapper:before {
+  background-color: #e6f7ff;
+}
+.tx-employee-modal-picker.ant-tree.ant-tree-directory
+  .ant-tree-treenode-selected
+  .ant-tree-node-content-wrapper {
+  color: #1677ff;
+}
+.tx-employee-modal-picker.ant-tree.ant-tree-directory
+  .ant-tree-treenode-selected
+  svg
+  path {
+  color: #1677ff;
+}
+
+.tx-employee-modal-picker .ant-tree-treenode {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}

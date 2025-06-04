@@ -1,0 +1,7 @@
+.tx-employee-picker .ant-select-selector .sub-info {
+  display: none;
+}
+.tx-employee-picker .ant-select-selector .employee-item {
+  padding: 0;
+  border-bottom: 0;
+}

@@ -1,0 +1,7 @@
+.tx-column-row:hover span.anticon {
+  opacity: 1;
+}
+
+.tx-column-row .ant-checkbox-wrapper {
+  align-items: center;
+}

@@ -1,0 +1,24 @@
+@keyframes checkMarkAnimation {
+  to {
+    transform: translate(100%, 0%);
+  }
+}
+
+.chark-mark-animation-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 110px;
+  height: 110px;
+  background-image: url("../../../../../svg/qian_green_round.svg");
+}
+
+.chark-mark-animation-container .check-mark-animation {
+  position: absolute;
+  transform: translate(-100%, -100%);
+  z-index: 10;
+  height: 200px;
+  max-width: 200px !important;
+  animation: checkMarkAnimation 2s;
+  animation-delay: 5s;
+}

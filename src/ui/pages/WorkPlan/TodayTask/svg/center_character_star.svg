@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 98.44 129.91">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #f0cf47;
+        stroke: #000;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6px;
+      }
+    </style>
+  </defs>
+  <g id="_人物旁边星星" data-name="人物旁边星星">
+    <polygon class="cls-1" points="15.1 33.04 48.23 60.09 86.92 53.29 64.36 85.44 74.82 126.91 41.69 99.86 3 106.66 25.56 74.51 15.1 33.04"/>
+    <polygon class="cls-1" points="42.04 11.45 65.25 16.26 82.52 3 79.67 24.58 95.44 42.28 72.23 37.48 54.96 50.73 57.81 29.15 42.04 11.45"/>
+  </g>
+</svg>

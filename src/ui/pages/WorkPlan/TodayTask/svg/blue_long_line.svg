@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_2" data-name="图层 2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 68.63 110.73">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: none;
+        stroke: #4285eb;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 25px;
+      }
+    </style>
+  </defs>
+  <g id="_蓝长直线" data-name="蓝长直线">
+    <line id="_蓝长直线-2" data-name="蓝长直线" class="cls-1" x1="56.13" y1="98.23" x2="12.5" y2="12.5"/>
+  </g>
+</svg>

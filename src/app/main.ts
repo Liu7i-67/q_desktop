@@ -4,6 +4,7 @@ import { isDev } from './utils.js';
 import { IGloablStore, IWebView } from './interface.js';
 import { windowResize } from './tools/index.js';
 import { updateMenu } from './menu.js';
+import { globalRegister } from './register.js';
 
 const store: IGloablStore = {
   windowList: [],
@@ -37,7 +38,7 @@ app.on('ready', () => {
     );
   }
 
-  view1.setBounds({ x: 0, y: 0, width, height });
+  view1.setBounds({ x: 0, y: 0, width, height: height - 50 });
 
   store.windowList.push({
     window: mainWindow,
@@ -50,6 +51,7 @@ app.on('ready', () => {
   });
   store.activeWindow = `window_${id}`;
   updateMenu(store);
+  globalRegister(store);
 
   // 监听窗口大小变化
   mainWindow.on('resize', () => {

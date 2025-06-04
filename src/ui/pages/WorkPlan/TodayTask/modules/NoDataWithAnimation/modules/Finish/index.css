@@ -1,0 +1,55 @@
+@keyframes finishAnimation {
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
+
+.finish-animation {
+  transform: scale(0) rotate(-90deg);
+  animation: finishAnimation 1s forwards;
+  animation-delay: 3.5s;
+}
+
+@keyframes finishFirstRuningImgAnimation {
+  100% {
+    opacity: 0;
+  }
+}
+
+.finish-animation .finish-first-runing-img-animation {
+  opacity: 1;
+  animation: finishFirstRuningImgAnimation 0.5s forwards;
+  animation-delay: 4.5s;
+}
+
+@keyframes finishSecondRuningImgAnimation {
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes finishSecondRuningFlickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.finish-animation .finish-second-runing-img-animation {
+  opacity: 0;
+  animation:
+    finishSecondRuningImgAnimation 0.5s forwards 5s,
+    finishSecondRuningFlickerAnimation 0.5s 5.5s;
+}
+
+.finish-animation .finish-second-runing-img-animation-slowly {
+  opacity: 0;
+  animation:
+    finishSecondRuningImgAnimation 0.5s forwards 5s,
+    finishSecondRuningFlickerAnimation 0.5s 6s;
+}
