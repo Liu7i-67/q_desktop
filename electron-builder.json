@@ -11,11 +11,5 @@
   },
   "win": {
     "target": ["portable", "msi"]
-  },
-  "publish": [
-    {
-      "provider": "generic",
-      "url": "http://localhost:9071"
-    }
-  ]
+  }
 }
