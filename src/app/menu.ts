@@ -9,11 +9,11 @@ export const updateMenu = (store: IGloablStore) => {
   );
   const template: MenuItemConstructorOptions[] = [
     {
-      label: '+1',
+      label: '【新增窗口】',
       click: () => {
         addTab(
           {
-            title: '来一个' + Date.now(),
+            title: '新窗口',
             url: '',
           },
           store,
@@ -25,7 +25,7 @@ export const updateMenu = (store: IGloablStore) => {
     for (let v of activeWindow.viewList) {
       let label = v.title;
       if (v.id === activeWindow.activeView) {
-        label = `[${label}-展示中]`;
+        label = `[=${label}=]`;
       }
 
       template.push({

@@ -4,6 +4,7 @@ import { isDev } from './utils.js';
 import { IGloablStore, IWebView } from './interface.js';
 import { windowResize } from './tools/index.js';
 import { updateMenu } from './menu.js';
+import { checkUpdate } from './checkUpdate.js';
 
 const store: IGloablStore = {
   windowList: [],
@@ -55,5 +56,9 @@ app.on('ready', () => {
   mainWindow.on('resize', () => {
     const [width, height] = mainWindow.getSize();
     windowResize(width, height, store);
+  });
+
+  view1.webContents.on('did-finish-load', () => {
+    checkUpdate(store);
   });
 });
