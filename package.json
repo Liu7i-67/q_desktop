@@ -1,6 +1,6 @@
 {
   "name": "q_desktop",
-  "version": "0.0.7",
+  "version": "0.0.2",
   "private": true,
   "type": "module",
   "main": "dist/app/main.js",
@@ -15,6 +15,7 @@
     "preview:web": "rsbuild preview",
     "translate:electron": "tsc --project src/app/tsconfig.json",
     "package:mac": "npm run translate:electron && npm run build:web && electron-builder --mac --arm64",
+    "package": "npm run translate:electron && npm run build:web && electron-builder --publish never",
     "package:win": "npm run translate:electron && npm run build:web && electron-builder --win --x64 --publish always",
     "package:linux": "npm run translate:electron && npm run build:web && electron-builder --linux --x64"
   },
@@ -22,7 +23,8 @@
     "cross-env": "^7.0.3",
     "electron-log": "^5.4.0",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "electron-updater": "^6.6.2"
   },
   "devDependencies": {
     "@rsbuild/core": "^1.2.16",
@@ -30,9 +32,8 @@
     "@types/node": "^22.13.11",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
-    "electron": "^35.0.3",
+    "electron": "^35.0.3", 
     "electron-builder": "^25.1.8",
-    "electron-updater": "^6.6.2",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.5.2",
     "typescript": "^5.8.2"
