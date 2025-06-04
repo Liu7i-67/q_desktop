@@ -10,6 +10,10 @@
     "category": "Utility"
   },
   "win": {
-    "target": ["portable", "msi"]
+    "target": ["nsis"] ,
+    "publish": {
+      "provider": "generic",
+      "url": "http://localhost:9071/packages/win32/"
+    }
   }
 }

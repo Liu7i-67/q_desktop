@@ -1,6 +1,6 @@
 {
   "name": "q_desktop",
-  "version": "1.0.0",
+  "version": "0.0.7",
   "private": true,
   "type": "module",
   "main": "dist/app/main.js",
@@ -15,11 +15,12 @@
     "preview:web": "rsbuild preview",
     "translate:electron": "tsc --project src/app/tsconfig.json",
     "package:mac": "npm run translate:electron && npm run build:web && electron-builder --mac --arm64",
-    "package:win": "npm run translate:electron && npm run build:web && electron-builder --win --x64",
+    "package:win": "npm run translate:electron && npm run build:web && electron-builder --win --x64 --publish always",
     "package:linux": "npm run translate:electron && npm run build:web && electron-builder --linux --x64"
   },
   "dependencies": {
     "cross-env": "^7.0.3",
+    "electron-log": "^5.4.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

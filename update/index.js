@@ -1,16 +1,13 @@
-// server.js
-
-const express = require('express');
+const httpServer = require('http-server');
 const path = require('path');
 
-const app = express();
-const PORT = 9071;
-const PUBLIC_DIR = path.join(__dirname, 'public');
+const port = 9071;
 
-// 托管静态文件
-app.use(express.static(PUBLIC_DIR));
+httpServer
+  .createServer({
+    // root 是当前文件夹的父文件夹
+    root: path.resolve(__dirname, './'),
+  })
+  .listen(port);
 
-// 启动服务器
-app.listen(PORT, () => {
-  console.log(`✅ 静态服务器运行在 http://localhost:${PORT}`);
-});
+console.log(`静态文件服务器运行在 http://localhost:${port}`);
