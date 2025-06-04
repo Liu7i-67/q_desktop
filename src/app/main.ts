@@ -1,4 +1,5 @@
-import { app, BrowserWindow, session, WebContentsView } from 'electron';
+import { app, BrowserWindow, WebContentsView } from 'electron';
+import Updater from 'electron-updater';
 import path from 'path';
 import { isDev } from './utils.js';
 import { IGloablStore, IWebView } from './interface.js';
@@ -11,6 +12,31 @@ const store: IGloablStore = {
 };
 
 app.on('ready', () => {
+  // 配置更新服务器地址
+  Updater.autoUpdater.setFeedURL({
+    url: 'http://localhost:9071',
+    provider: 'generic',
+  });
+
+  // 监听更新可用事件
+  Updater.autoUpdater.on('update-available', () => {
+    console.log('=====发现可用更新');
+  });
+
+  // 监听更新下载完成事件
+  Updater.autoUpdater.on('update-downloaded', () => {
+    console.log('=====更新下载完成，即将重启应用');
+    Updater.autoUpdater.quitAndInstall();
+  });
+
+  // 监听错误事件
+  Updater.autoUpdater.on('error', (error) => {
+    console.error('=====更新出错:', error);
+  });
+
+  // 检查更新
+  Updater.autoUpdater.checkForUpdates();
+
   const width = 400;
   const height = 400;
   const mainWindow = new BrowserWindow({
