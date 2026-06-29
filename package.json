@@ -8,9 +8,9 @@
   "author": "liu7i",
   "scripts": {
     "build:web": "rsbuild build",
-    "dev":"npm-run-all --parallel dev:web dev:electron",
+    "dev": "npm-run-all --parallel dev:web dev:electron",
     "dev:web": "rsbuild dev",
-    "dev:electron": "npm run translate:electron && cross-env NODE_ENV=development electron .", 
+    "dev:electron": "npm run translate:electron && cross-env NODE_ENV=development electron .",
     "format": "prettier --write .",
     "preview:web": "rsbuild preview",
     "translate:electron": "tsc --project src/app/tsconfig.json",
@@ -26,6 +26,8 @@
   "devDependencies": {
     "@rsbuild/core": "^1.2.16",
     "@rsbuild/plugin-react": "^1.1.1",
+    "@rsbuild/plugin-tailwindcss": "^2.0.3",
+    "@tailwindcss/postcss": "^4.3.1",
     "@types/node": "^22.13.11",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
@@ -33,6 +35,7 @@
     "electron-builder": "^25.1.8",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.5.2",
+    "tailwindcss": "^4.3.1",
     "typescript": "^5.8.2"
   },
   "pnpm": {

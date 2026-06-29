@@ -1,9 +1,10 @@
 import { defineConfig } from '@rsbuild/core';
 import { pluginReact } from '@rsbuild/plugin-react';
+import { pluginTailwindcss } from '@rsbuild/plugin-tailwindcss';
 import path from 'path';
 
 export default defineConfig({
-  plugins: [pluginReact()],
+  plugins: [pluginReact(), pluginTailwindcss()],
   server: {
     port: 5677,
   },
