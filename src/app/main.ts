@@ -57,12 +57,20 @@ app.on('ready', () => {
 
 app.on('browser-window-blur', (event, window) => {
   console.log(new Date().toLocaleTimeString(), 'browser-window-blur');
-  console.log(window.id, window.title);
+  console.log(
+    window.id,
+    window.title,
+    windowManager.isWindowAlive(window.id) ? '存活' : '已销毁',
+  );
 });
 
 app.on('browser-window-focus', (event, window) => {
   console.log(new Date().toLocaleTimeString(), 'browser-window-focus');
-  console.log(window.id, window.title);
+  console.log(
+    window.id,
+    window.title,
+    windowManager.isWindowAlive(window.id) ? '存活' : '已销毁',
+  );
 });
 app.on('browser-window-created', (event, window) => {
   console.log(new Date().toLocaleTimeString(), 'browser-window-created');
