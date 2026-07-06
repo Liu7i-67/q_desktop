@@ -14,3 +14,8 @@ export const handleFilePath = (filePath: string) => {
 export const handleUrl = (url: string) => {
   console.log('接收到 URL:', url);
 };
+
+/** @function 是否为开发环境 */
+export function isDev(): boolean {
+  return process.env.NODE_ENV === 'development';
+}

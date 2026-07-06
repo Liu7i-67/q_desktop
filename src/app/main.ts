@@ -1,7 +1,8 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, session } from 'electron';
 import path from 'path';
-import { isDev } from './utils.js';
+import { isDev } from './utils/index.js';
 import { handleFilePath, handleUrl } from './utils/index.js';
+import { windowManager } from './windowManager.js';
 
 let mainWindow: BrowserWindow;
 
@@ -54,9 +55,48 @@ app.on('ready', () => {
   console.log(2, app.getName());
 });
 
+app.on('browser-window-blur', (event, window) => {
+  console.log(new Date().toLocaleTimeString(), 'browser-window-blur');
+  console.log(window.id, window.title);
+});
+
+app.on('browser-window-focus', (event, window) => {
+  console.log(new Date().toLocaleTimeString(), 'browser-window-focus');
+  console.log(window.id, window.title);
+});
+app.on('browser-window-created', (event, window) => {
+  console.log(new Date().toLocaleTimeString(), 'browser-window-created');
+  console.log(window.id, window.title);
+  window.on('page-title-updated', (event) => {
+    event.preventDefault();
+  });
+});
+
 app.whenReady().then(() => {
   console.log('whenReady');
-  mainWindow = new BrowserWindow({});
+
+  session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
+    callback({
+      responseHeaders: {
+        ...details.responseHeaders,
+        'Content-Security-Policy': [
+          "default-src 'self'; script-src 'self' 'unsafe-inline'",
+        ],
+      },
+    });
+  });
+
+  mainWindow = windowManager.createWindow('main', {});
+
+  let subwindow = windowManager.createWindow('sub', {
+    title: '子窗口',
+  });
+
+  if (isDev()) {
+    subwindow.loadURL('http://127.0.0.1:5677');
+  } else {
+    subwindow.loadFile(path.join(app.getAppPath() + '/dist/web/index.html'));
+  }
 
   if (isDev()) {
     mainWindow.loadURL('http://127.0.0.1:5677');
