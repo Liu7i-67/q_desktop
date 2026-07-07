@@ -1,4 +1,4 @@
-import { app, BrowserWindow, session } from 'electron';
+import { app, BrowserWindow, globalShortcut, Menu, session } from 'electron';
 import path from 'path';
 import { isDev } from './utils/index.js';
 import { handleFilePath, handleUrl } from './utils/index.js';
@@ -21,6 +21,7 @@ app.on('will-quit', (event) => {
 
 app.on('quit', (event) => {
   console.log('quit');
+  globalShortcut.unregisterAll();
 });
 
 app.on('window-all-closed', () => {
@@ -82,6 +83,8 @@ app.on('browser-window-created', (event, window) => {
 
 app.whenReady().then(() => {
   console.log('whenReady');
+  // 全局干掉 Electron 的默认系统菜单
+  Menu.setApplicationMenu(null);
 
   session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
     callback({

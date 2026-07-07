@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog, shell } from 'electron';
+import { app, BrowserWindow, dialog, globalShortcut, shell } from 'electron';
 import path from 'path';
 
 class WindowManager {
@@ -27,6 +27,29 @@ class WindowManager {
 
     // 窗口一出生，立刻登记 ID
     this.aliveWindowIds.add(win.id);
+
+    // 定义你要拦截的快捷键
+    const DEV_TOOLS_SHORTCUT = 'CommandOrControl+Alt+I';
+
+    // 1. 获得焦点时：抢占系统快捷键
+    win.on('focus', () => {
+      const isSuccess = globalShortcut.register(DEV_TOOLS_SHORTCUT, () => {
+        if (win.webContents.isDevToolsOpened()) {
+          win.webContents.closeDevTools();
+        } else {
+          win.webContents.openDevTools({ mode: 'detach' });
+        }
+      });
+
+      if (!isSuccess) {
+        console.error(`窗口 [${name}] 注册快捷键失败: ${DEV_TOOLS_SHORTCUT}`);
+      }
+    });
+
+    win.on('blur', () => {
+      globalShortcut.unregister(DEV_TOOLS_SHORTCUT);
+    });
+
     const { webContents } = win;
     // 拦截渲染进程的部分跳转
     webContents.on('will-navigate', (event, url) => {
@@ -49,6 +72,7 @@ class WindowManager {
     // 生命周期统一管理
     win.on('closed', () => {
       this.windows.delete(name);
+      globalShortcut.unregister(DEV_TOOLS_SHORTCUT);
     });
 
     // 监听进程彻底崩溃
