@@ -1,4 +1,4 @@
-import { app, BrowserWindow, dialog } from 'electron';
+import { app, BrowserWindow, dialog, shell } from 'electron';
 import path from 'path';
 
 class WindowManager {
@@ -25,15 +25,33 @@ class WindowManager {
     };
     const win = new BrowserWindow({ ...defaultOptions, ...options });
 
-    // 1. 窗口一出生，立刻登记 ID
+    // 窗口一出生，立刻登记 ID
     this.aliveWindowIds.add(win.id);
+    const { webContents } = win;
+    // 拦截渲染进程的部分跳转
+    webContents.on('will-navigate', (event, url) => {
+      // 允许本地开发地址或特定的内网地址
+      if (
+        url.startsWith('http://127.0.0.1') ||
+        url.startsWith('https://liuqi.cool')
+      ) {
+        return; // 正常放行
+      }
 
-    // 3. 生命周期统一管理
+      // 拦截其他所有外部跳转
+      event.preventDefault();
+      console.log(`[安全管控] 已拦截非法路由跳转: ${url}`);
+
+      // 可选方案：将拦截下的合法外链交由用户的默认浏览器（如 Chrome/Edge）打开
+      shell.openExternal(url);
+    });
+
+    // 生命周期统一管理
     win.on('closed', () => {
       this.windows.delete(name);
     });
 
-    // 1. 监听进程彻底崩溃
+    // 监听进程彻底崩溃
     win.webContents.on('render-process-gone', (event, details) => {
       console.error(`窗口 [${name}] 崩溃了！原因: ${details.reason}`);
 
@@ -44,7 +62,7 @@ class WindowManager {
       // this.createWindow(name, options); // 是否需要自动重启看业务需求
     });
 
-    // 2. 监听页面无响应 (卡死)
+    // 监听页面无响应 (卡死)
     win.on('unresponsive', () => {
       console.warn(`窗口 [${name}] 无响应，可能 JS 线程被阻塞`);
       // 可以弹出一个系统原生对话框，询问用户是否强制关闭

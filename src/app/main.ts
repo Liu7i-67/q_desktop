@@ -96,15 +96,15 @@ app.whenReady().then(() => {
 
   mainWindow = windowManager.createWindow('main', {});
 
-  let subwindow = windowManager.createWindow('sub', {
-    title: '子窗口',
-  });
+  // let subwindow = windowManager.createWindow('sub', {
+  //   title: '子窗口',
+  // });
 
-  if (isDev()) {
-    subwindow.loadURL('http://127.0.0.1:5677');
-  } else {
-    subwindow.loadFile(path.join(app.getAppPath() + '/dist/web/index.html'));
-  }
+  // if (isDev()) {
+  //   subwindow.loadURL('http://127.0.0.1:5677');
+  // } else {
+  //   subwindow.loadFile(path.join(app.getAppPath() + '/dist/web/index.html'));
+  // }
 
   if (isDev()) {
     mainWindow.loadURL('http://127.0.0.1:5677');
