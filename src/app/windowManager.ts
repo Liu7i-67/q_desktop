@@ -1,4 +1,12 @@
-import { app, BrowserWindow, dialog, globalShortcut, shell } from 'electron';
+import {
+  app,
+  BrowserWindow,
+  dialog,
+  globalShortcut,
+  Menu,
+  MenuItem,
+  shell,
+} from 'electron';
 import path from 'path';
 
 class WindowManager {
@@ -50,9 +58,8 @@ class WindowManager {
       globalShortcut.unregister(DEV_TOOLS_SHORTCUT);
     });
 
-    const { webContents } = win;
     // 拦截渲染进程的部分跳转
-    webContents.on('will-navigate', (event, url) => {
+    win.webContents.on('will-navigate', (event, url) => {
       // 允许本地开发地址或特定的内网地址
       if (
         url.startsWith('http://127.0.0.1') ||
@@ -84,6 +91,39 @@ class WindowManager {
       this.windows.delete(name);
       win.destroy();
       // this.createWindow(name, options); // 是否需要自动重启看业务需求
+    });
+
+    // 监听右键菜单事件
+    win.webContents.on('context-menu', (event, params) => {
+      // 实例化一个新菜单
+      const menu = new Menu();
+      menu.append(
+        new MenuItem({
+          label: '返回上一级',
+          enabled: win.webContents.navigationHistory.canGoBack(),
+          click: () => {
+            win.webContents.navigationHistory.goBack();
+          },
+        }),
+      );
+      menu.append(new MenuItem({ type: 'separator' }));
+      menu.append(
+        new MenuItem({
+          label: '刷新',
+          click: () => {
+            win.webContents.reload();
+          },
+        }),
+      );
+      menu.append(
+        new MenuItem({
+          label: '强制刷新',
+          click: () => {
+            win.webContents.reloadIgnoringCache();
+          },
+        }),
+      );
+      menu.popup({ window: win });
     });
 
     // 监听页面无响应 (卡死)
